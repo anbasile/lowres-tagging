@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=/home/lillo/org/courses/ailct/project/src/baseline/bin
+CMD=/home/lillo/org/courses/ailct/project/src/baseline/cmd
+LIB=/home/lillo/org/courses/ailct/project/src/baseline/lib
+
+OPTIONS="-token -lemma -sgml"
+
+TAGGER=${BIN}/tree-tagger
+TOKENIZER=${CMD}/utf8-tokenize.perl
+PARFILE=${LIB}/slovenian-utf8.par
+
+$TOKENIZER $* |
+$TAGGER $OPTIONS $PARFILE

@@ -1,0 +1,7 @@
+.
+ADJ
+ADV
+NOUN
+NUM
+PRT
+VERB

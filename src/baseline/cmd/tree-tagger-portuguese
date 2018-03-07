@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=/home/lillo/org/courses/ailct/project/src/baseline/bin
+CMD=/home/lillo/org/courses/ailct/project/src/baseline/cmd
+LIB=/home/lillo/org/courses/ailct/project/src/baseline/lib
+
+TOKENIZER=${BIN}/separate-punctuation
+SPLITTER=${CMD}/portuguese-splitter.perl
+TAGGER=${BIN}/tree-tagger
+ABBR_LIST=${LIB}/portuguese-abbreviations-utf8
+POST_TAGGING=${CMD}/portuguese-post-tagging
+PARFILE=${LIB}/portuguese-utf8.par
+
+# splitting 
+$SPLITTER $* |
+# pre-tokenization
+sed "s/\([\)\"\'\?\!]\)\([\.\,\;\:]\)/ \1 \2/g" |
+# tokenizing
+$TOKENIZER +1 +s +l $ABBR_LIST |
+# remove empty lines
+grep -v '^$' |
+# tagging
+$TAGGER $PARFILE -token -lemma -sgml | 
+$POST_TAGGING -no
