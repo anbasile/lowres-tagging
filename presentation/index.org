@@ -1,0 +1,17 @@
+#+TITLE: find a nice title
+
+* the problem
+
+show example of sentence to be tagged
+
+* the solutions
+
+- $$$$ (how much it costs to annotate big corpora?)
+- unsupervised
+- something in between (stretch the previous two points and put this in the middle)
+
+* the past
+- HMM
+
+* the present
+- go neural!
