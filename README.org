@@ -1,0 +1,13 @@
+* Introduction 
+
+- land on a new country
+- you are a linguist
+- you have a laptop with you
+- want to understand the local language
+- but you have nothing
+- if you meet a local linguist, then you could sit together and write a grammar
+- if you are lucky to get a dictionary, then you can propagate labels from the one language to the local one
+- if you have a corpus, then you can go for fully unsupervised learning
+- if you find out that the local language is similar to yours, then you could try to use DIRECTLY your resources for the local one
+- anyway, you need something.
+- 
