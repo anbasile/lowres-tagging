@@ -41,6 +41,9 @@ train=list(read(train_file))
 test=list(read(test_file))
 words=[]
 tags=[]
+# add topic
+topics_train = [random.randint(0,9) for _ in range(len(train))]
+assert len(topics_train) == len(train)
 
 wc=Counter()
 for s in train:
@@ -150,7 +153,8 @@ for ITER in range(2):
             print(good/(good+bad))
         ws = [vw.w2i.get(w, UNK) for w,p in s]
         ps = [vt.w2i[p] for w,p in s]
-        sum_errs = build_tagging_graph(ws,ps,builders)
+        tt = topics_train[i] # add topics
+        sum_errs = build_tagging_graph(ws,ps,builders, tt)
         squared = -sum_errs# * sum_errs
         loss += sum_errs.scalar_value()
         tagged += len(ps)
